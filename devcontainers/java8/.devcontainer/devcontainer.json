@@ -1,0 +1,20 @@
+{
+    "runArgs": [
+        "--userns=keep-id",
+        "--security-opt", "label=disable"
+    ],
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": "."
+    },
+    "features": {},
+    "overrideCommand": true,
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-containers"
+            ]
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Gentle AI (Podman)",
+  //"image": "mcr.microsoft.com/devcontainers/go:1.24-bookworm",
+  "build": {
+      "dockerfile": "../Dockerfile",
+      "context": "."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2.5.6": {
+      "configureZshAsDefaultShell": true
+    }
+  },
+  "containerEnv": {
+	  "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+  },
+  "runArgs": [
+      "--userns=keep-id",
+      "--security-opt", 
+      "label=disable"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "echo 'DevContainer ready for Gentle-AI. Run go install github.com/gentleman-programming/gentle-ai/cmd/gentle-ai@latest to begin.'",
+  "remoteUser": "vscode"
+}
