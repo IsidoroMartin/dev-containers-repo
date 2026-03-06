@@ -12,7 +12,8 @@
     }
   },
   "containerEnv": {
-	  "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+	  "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock",
+	  "TEST_VARIABLE": "CCCC"
   },
   "runArgs": [
       "--userns=keep-id",

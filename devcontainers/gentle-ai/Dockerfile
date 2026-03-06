@@ -1,5 +1,5 @@
 # Usamos el nombre completo del registro para evitar el error "image not known"
-FROM mcr.microsoft.com/devcontainers/go:1.24-bookworm
+FROM mcr.microsoft.com/devcontainers/go:1.25-bookworm
 
 # Evitamos que la instalación de paquetes se detenga
 ENV DEBIAN_FRONTEND=noninteractive
@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     git \
     iputils-ping \
     dnsutils \
+    npm \
     && npm i -g opencode-ai \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
