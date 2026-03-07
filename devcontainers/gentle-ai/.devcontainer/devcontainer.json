@@ -29,5 +29,7 @@
     }
   },
   "postCreateCommand": "echo 'DevContainer ready for Gentle-AI. Run go install github.com/gentleman-programming/gentle-ai/cmd/gentle-ai@latest to begin.'",
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "forwardPorts": [8085], // If the plugin allows setting a static port
+  "appPort": [8085]
 }
