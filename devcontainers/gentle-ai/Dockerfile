@@ -34,14 +34,7 @@ RUN go install github.com/gentleman-programming/gentle-ai/cmd/gentle-ai@latest
 RUN mkdir -p /home/vscode/.config/opencode/ && \
     echo '{\n\
   "$schema": "https://opencode.ai/config.json",\n\
-  "plugin": ["opencode-gemini-auth@latest"],\n\
-  "provider": {\n\
-    "google": {\n\
-      "options": {\n\
-        "projectId": "your-specific-project-id"\n\
-      }\n\
-    }\n\
-  }\n\
+  "plugin": ["opencode-gemini-auth@latest"]\n\
 }' > /home/vscode/.config/opencode/opencode.json
 
 # 5. Initialization

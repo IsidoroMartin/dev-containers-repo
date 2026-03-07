@@ -12,8 +12,7 @@
     }
   },
   "containerEnv": {
-	  "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock",
-	  "TEST_VARIABLE": "CCCC"
+	  "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
   },
   "runArgs": [
       "--userns=keep-id",
@@ -30,6 +29,8 @@
   },
   "postCreateCommand": "echo 'DevContainer ready for Gentle-AI. Run go install github.com/gentleman-programming/gentle-ai/cmd/gentle-ai@latest to begin.'",
   "remoteUser": "vscode",
-  "forwardPorts": [8085], // If the plugin allows setting a static port
-  "appPort": [8085]
+  "forwardPorts": [8085],
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-home,target=/home/vscode,type=volume"
+  ]
 }
