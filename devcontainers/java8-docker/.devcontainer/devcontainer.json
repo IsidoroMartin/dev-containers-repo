@@ -1,0 +1,56 @@
+/**
+  * This devcontainer configuration is used to set up a development environment for the Gentle AI project using Docker.
+  * It specifies the base image, features, extensions, and post-creation commands to ensure a smooth development experience.
+    
+    Add the following settings to your VS Code settings.json to enhance the development experience with this container:
+  
+    // Requerido para uso con docker y WSL
+    "dev.containers.executeInWSL": true,
+    "dev.containers.wslDistroName": "Ubuntu-24.04",
+    "dev.containers.mountWaylandSocket": false,
+    "dev.containers.mountX11Socket": false,
+    "dev.containers.copyAttributes": "none",
+    "claudeCode.preferredLocation": "panel"
+
+
+  */
+
+{
+  "name": "devcontainer-git-repositories",
+  "build": {
+      "dockerfile": "Dockerfile",
+      "context": "."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2.5.7": {
+      "configureZshAsDefaultShell": true
+    }
+  },
+"customizations": {
+    "vscode": {
+      "settings": {
+        "git.defaultCloneDirectory": "${containerWorkspaceFolder}/devcontainer-git-repositories"
+      },
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-java-dependency",
+        "GabrielBB.vscode-lombok",
+        "redhat.vscode-xml"
+      ]
+    }
+  },
+  "postCreateCommand": "echo 'DevContainer ready for Java 8 development.'",
+  "remoteEnv": {
+    "W_HOME": "${localEnv:W_HOME}",
+    "REPOS_DIR": "${containerWorkspaceFolder}/devcontainer-git-repositories"
+  },
+  "remoteUser": "vscode",
+  "forwardPorts": [8085],
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-home,target=/home/vscode,type=volume",
+    "source=${localEnv:W_HOME}/devcontainer-git-repositories,target=${containerWorkspaceFolder}/devcontainer-git-repositories,type=bind"
+  ]
+}
