@@ -1,0 +1,23 @@
+/**
+  * This devcontainer configuration is used to set up a development environment for the Gentle AI project using Docker.
+  * It specifies the base image, features, extensions, and post-creation commands to ensure a smooth development experience.
+    
+    Add the following settings to your VS Code settings.json to enhance the development experience with this container:
+  
+    // Requerido para uso con docker y WSL
+    "dev.containers.executeInWSL": true,
+    "dev.containers.wslDistroName": "Ubuntu-24.04",
+    "dev.containers.mountWaylandSocket": false,
+    "dev.containers.mountX11Socket": false,
+    "dev.containers.copyAttributes": "none",
+    "claudeCode.preferredLocation": "panel"
+
+
+  */
+
+
+{
+
+    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+}

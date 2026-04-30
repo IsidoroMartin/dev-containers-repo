@@ -1,0 +1,16 @@
+{
+    "geminicodeassist.project": "YOUR_GCP_PROJECT_ID",
+    "dev.containers.dockerComposePath": "podman-compose",
+    "dev.containers.dockerPath": "podman",
+    "redhat.telemetry.enabled": true,
+    "dev.containers.executeInWSL": false,
+
+    // AÑADE ESTO PARA EVITAR EL ERROR DE RUTA UNC:
+    "dev.containers.mountWaylandSocket": false,
+    "dev.containers.mountX11Socket": false,
+    "dev.containers.copyAttributes": "none",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "claudeCode.preferredLocation": "panel"
+
+}

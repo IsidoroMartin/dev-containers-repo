@@ -1,0 +1,26 @@
+{
+    "name": "Podman-in-Podman Template",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "runArgs": [
+        "--privileged"
+    ],
+    "mounts": [
+        "source=pinp-containers-${devcontainerId},target=/var/lib/containers,type=volume"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "docker.dockerPath": "podman",
+                "docker.host": "unix:///run/podman/podman.sock"
+            }
+        }
+    },
+    "postCreateCommand": "podman system info",
+    "remoteUser": "root"
+}
