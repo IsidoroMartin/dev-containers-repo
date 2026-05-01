@@ -29,7 +29,9 @@
 "customizations": {
     "vscode": {
       "settings": {
-        "git.defaultCloneDirectory": "${containerWorkspaceFolder}/devcontainer-git-repositories"
+        "git.defaultCloneDirectory": "${containerWorkspaceFolder}/devcontainer-git-repositories",
+        "xml.server.preferBinary": true,
+        "maven.executable.path": "/usr/bin/mvn"
       },
       "extensions": [
         "redhat.java",
@@ -38,7 +40,12 @@
         "vscjava.vscode-maven",
         "vscjava.vscode-java-dependency",
         "GabrielBB.vscode-lombok",
-        "redhat.vscode-xml"
+        "redhat.vscode-xml",
+        "vmware.vscode-boot-dev-pack",
+        "usernamehw.errorlens",
+        "ms-azuretools.vscode-containers",
+        "eamodio.gitlens",
+        "yzhang.markdown-all-in-one"
       ]
     }
   },
