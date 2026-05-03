@@ -20,7 +20,7 @@
   */
 
 {
-  "name": "devcontainer-git-repositories",
+  "name": "devcontainer-java-8-repository",
   "build": {
       "dockerfile": "Dockerfile",
       "context": "."
@@ -49,9 +49,9 @@
         "usernamehw.errorlens",
         "ms-azuretools.vscode-containers",
         "eamodio.gitlens",
-        "yzhang.markdown-all-in-one",
-        "ms-azuretools.vscode-docker",
-        "docker.docker"
+        "yzhang.markdown-all-in-one"
+        //"ms-azuretools.vscode-docker",
+        //"docker.docker"
       ]
     }
   },
@@ -60,7 +60,7 @@
     "W_HOME": "${localEnv:W_HOME}"
   },
   "remoteUser": "vscode",
-  "forwardPorts": [8085],
+  //"forwardPorts": [8085],
   "mounts": [
     "source=${localWorkspaceFolderBasename}-home,target=/home/vscode,type=volume",
     // "source=${localEnv:W_HOME}/devcontainer-git-repositories,target=${containerWorkspaceFolder}/devcontainer-git-repositories,type=bind"
