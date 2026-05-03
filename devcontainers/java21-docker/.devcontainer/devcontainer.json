@@ -1,0 +1,71 @@
+/**
+  * This devcontainer configuration is used to set up a development environment for the Gentle AI project using Docker.
+  * It specifies the base image, features, extensions, and post-creation commands to ensure a smooth development experience.
+    
+    Add the following settings to your VS Code settings.json to enhance the development experience with this container:
+  
+    // Requerido para uso con docker y WSL
+    "dev.containers.executeInWSL": true,
+    "dev.containers.wslDistroName": "Ubuntu-24.04",
+    "dev.containers.mountWaylandSocket": false,
+    "dev.containers.mountX11Socket": false,
+    "dev.containers.copyAttributes": "none",
+    "claudeCode.preferredLocation": "panel"
+    
+    Otras preferences:
+    No reabre la ultima carpeta cerrada, se inicia siempre sin directorio por defecto, a no ser que lo abras desde carpeta o desde un workspace
+    "window.restoreWindows": "none"
+
+
+  */
+
+{
+  "name": "java21-dood-devcontainer",
+  "build": {
+      "dockerfile": "Dockerfile",
+      "context": "."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2.5.7": {
+      "configureZshAsDefaultShell": true
+    },
+    // Docker outside of Docker (DooD)
+     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+"customizations": {
+    "vscode": {
+      "settings": {
+        "git.defaultCloneDirectory": "~/devcontainer-git-repositories",
+        "xml.server.preferBinary": true,
+        "maven.executable.path": "/usr/bin/mvn"
+      },
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-java-dependency",
+        "GabrielBB.vscode-lombok",
+        "redhat.vscode-xml",
+        "vmware.vscode-boot-dev-pack",
+        "usernamehw.errorlens",
+        "ms-azuretools.vscode-containers",
+        "eamodio.gitlens",
+        "yzhang.markdown-all-in-one",
+        "ms-azuretools.vscode-docker",
+        "docker.docker"
+      ]
+    }
+  },
+  "postCreateCommand": "echo 'DevContainer ready for Java 8 development.'",
+  "remoteEnv": {
+    "W_HOME": "${localEnv:W_HOME}"
+  },
+  "remoteUser": "vscode",
+  //"forwardPorts": [8085],
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-home,target=/home/vscode,type=volume",
+    // "source=${localEnv:W_HOME}/devcontainer-git-repositories,target=${containerWorkspaceFolder}/devcontainer-git-repositories,type=bind"
+     "source=${localEnv:W_HOME}/devcontainer-git-repositories,target=/home/vscode/devcontainer-git-repositories,type=bind"
+  ]
+}
