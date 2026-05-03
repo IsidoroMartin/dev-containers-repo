@@ -11,6 +11,10 @@
     "dev.containers.mountX11Socket": false,
     "dev.containers.copyAttributes": "none",
     "claudeCode.preferredLocation": "panel"
+    
+    Otras preferences:
+    No reabre la ultima carpeta cerrada, se inicia siempre sin directorio por defecto, a no ser que lo abras desde carpeta o desde un workspace
+    "window.restoreWindows": "none"
 
 
   */
@@ -29,7 +33,7 @@
 "customizations": {
     "vscode": {
       "settings": {
-        "git.defaultCloneDirectory": "${containerWorkspaceFolder}/devcontainer-git-repositories",
+        "git.defaultCloneDirectory": "~/devcontainer-git-repositories",
         "xml.server.preferBinary": true,
         "maven.executable.path": "/usr/bin/mvn"
       },
@@ -45,19 +49,21 @@
         "usernamehw.errorlens",
         "ms-azuretools.vscode-containers",
         "eamodio.gitlens",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "ms-azuretools.vscode-docker",
+        "docker.docker"
       ]
     }
   },
   "postCreateCommand": "echo 'DevContainer ready for Java 8 development.'",
   "remoteEnv": {
-    "W_HOME": "${localEnv:W_HOME}",
-    "REPOS_DIR": "${containerWorkspaceFolder}/devcontainer-git-repositories"
+    "W_HOME": "${localEnv:W_HOME}"
   },
   "remoteUser": "vscode",
   "forwardPorts": [8085],
   "mounts": [
     "source=${localWorkspaceFolderBasename}-home,target=/home/vscode,type=volume",
-    "source=${localEnv:W_HOME}/devcontainer-git-repositories,target=${containerWorkspaceFolder}/devcontainer-git-repositories,type=bind"
+    // "source=${localEnv:W_HOME}/devcontainer-git-repositories,target=${containerWorkspaceFolder}/devcontainer-git-repositories,type=bind"
+     "source=${localEnv:W_HOME}/devcontainer-git-repositories,target=/home/vscode/devcontainer-git-repositories,type=bind"
   ]
 }
