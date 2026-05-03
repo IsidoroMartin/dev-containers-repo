@@ -1,6 +1,6 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.dependency.packagePresentation": "flat"
-
-
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.autobuild.enabled": true,
+    "java.dependency.refreshDelay": 2000
 }

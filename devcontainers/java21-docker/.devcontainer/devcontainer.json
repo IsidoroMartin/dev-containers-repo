@@ -39,7 +39,8 @@
       "settings": {
         "git.defaultCloneDirectory": "~/devcontainer-git-repositories",
         "xml.server.preferBinary": true,
-        "maven.executable.path": "/usr/bin/mvn"
+        "maven.executable.path": "/usr/bin/mvn",
+		"spring-boot.ls.problem.application-properties.UNKNOWN_SPRING_BOOT_PROPERTY": "WARNING"
       },
       "extensions": [
         "redhat.java",
@@ -55,16 +56,17 @@
         "eamodio.gitlens",
         "yzhang.markdown-all-in-one",
         "ms-azuretools.vscode-docker",
-        "docker.docker"
+        "docker.docker",
+        "Oracle.oracle-java"
       ]
     }
   },
-  "postCreateCommand": "echo 'DevContainer ready for Java 8 development.'",
+  "postCreateCommand": "echo 'DevContainer ready for Java 21 development.'",
   "remoteEnv": {
     "W_HOME": "${localEnv:W_HOME}"
   },
   "remoteUser": "vscode",
-  //"forwardPorts": [8085],
+  "forwardPorts": [8080],
   "mounts": [
     "source=${localWorkspaceFolderBasename}-home,target=/home/vscode,type=volume",
     // "source=${localEnv:W_HOME}/devcontainer-git-repositories,target=${containerWorkspaceFolder}/devcontainer-git-repositories,type=bind"
